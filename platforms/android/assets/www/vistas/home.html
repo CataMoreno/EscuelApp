@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>EscuelApp</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="css/themes/all-themes.css" rel="stylesheet" />
+
+</head>
+
+<body class="theme-blue">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Cargando...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" placeholder="Buscar...">
+        <div class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                <img src="images/book-3_icon-icons.com_49257.png" style="width: 37px; margin-top: 1px; margin-left: -16px;">
+                </a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand">EscuelApp</a>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="image" id="foto_Acudiente">
+        
+                </div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="nombre_acudiente"><!-- NOMBRE DEL ACUDIENTE --></div>
+                    <div class="email" id="email_acudiente"><!-- NOMBRE DEL ESTUDIANTE --></div>
+                    <div class="email" id="rol"></div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Perfil</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Cerrar Sesion</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">MENU</li>
+                    <li class="active">
+                        <a id="home">
+                            <i class="material-icons">home</i>
+                            <span>HOME</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="cronograma">
+                            <i class="material-icons">event</i>
+                            <span>Cronograma</span>
+                        </a>
+                    </li>
+                     <li>
+                        <a id="horario_acudiente">
+                            <i class="material-icons">schedule</i>
+                            <span>Horario De Clases</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="excusas">
+                            <i class="material-icons">event_available</i>
+                            <span>Excusas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="consulta_docente">
+                           <i class="material-icons">account_circle</i>
+                            <span>Consultar Docente</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="consulta_institucion">
+                            <i class="material-icons">business</i>
+                            <span>Consultar Institución</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="atencion_publico" >
+                            <i class="material-icons">record_voice_over</i>
+                            <span>PQR</span>
+                        </a>
+                    </li>
+                   <li>
+                        <a id="solicitud">
+                            <i class="material-icons">insert_drive_file</i>
+                            <span>Solicitar Certificado</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="comunicados">
+                            <i class="material-icons">book</i>
+                            <span>Comunicados</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="materiales">
+                            <i class="material-icons">content_cut</i>
+                            <span>Útiles Y Otros Materiales</span>
+                        </a>
+                    </li>
+                </ul>  
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2017 - 2018 <a href="javascript:void(0);">EscuelApp</a>.
+                </div>
+                <div class="version">
+                    <b>Version: </b> 1.0
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+    </section>
+
+    <section class="content">
+    <!-- contenido -->
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div id="deviceProperties">
+           
+            </div>
+            <div id="anun"></div>
+            <div id="crono"></div>
+            <div id="conD"></div>
+            <div id="conI"></div>
+         </div>
+    </div>
+
+    </section>
+
+    <!-- Jquery Core Js -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    
+    <!--  cordova.js para utilizar algunos eventos creados dentro del script Home js -->
+    <script type="text/javascript" charset="utf-8" src="../cordova.js"></script>
+
+    <!-- En este archivo declaro la variable ruta la cual contiene el host donde hospedo mi php -->
+    <script src="js/root.js"></script>
+
+    <!-- Home js -->
+    <script type="text/javascript">
+        //Al Cerrar Sesion Eliminamos la sesion
+         $("#Cerrar_Sesion").click(function(){
+            document.addEventListener("deviceready",onDeviceReady,false);
+            function onDeviceReady(){
+
+                myDB = window.sqlitePlugin.openDatabase({name: "EscuelApp.db", location: 'default'});
+                var id = 1
+                myDB.transaction(function(transaction) {
+                var executeQuery = "DELETE FROM aesession where id=?";
+                transaction.executeSql(executeQuery, [id],
+                //On Success
+                function(tx, result) { window.location.href = ('../index.html');},
+                //On Error
+                function(error){alert('Something went Wrong');});
+
+                });
+            }
+        });
+
+
+        // Funcion que me obtiene los datos enviados por la Url     
+        function gup(name){
+            var regexS = "[\\?&]"+name+"=([^&#]*)";
+            var regex = new RegExp ( regexS );
+            var tmpURL = window.location.href;
+            var results = regex.exec( tmpURL );
+            if( results == null )
+                return"";
+            else
+                return results[1];
+        }
+
+        // Guado los datos que me llegan por la url con la funcion gup en las diferentes variables
+        var nombre = gup('nombre');
+        var email = gup('email');
+        var foto = gup('foto');
+        var ide = gup('id');
+        var año = gup('ano');
+        var ins = gup('ins');
+        var grupo = gup('grupo');
+        var tel  = gup('tel');
+        var id_es = gup('id_E');
+        var rol = gup('rol');
+        var nom = nombre.replace('%20', ' ');
+        var nombreset = nom.replace('%20', ' '); 
+
+        // Seteo los datos como el nombre,email y la foto dentro de los div correspondientes
+        $('#nombre_acudiente').html(nombreset);
+        $('#email_acudiente').html(email);
+        $('#foto_Acudiente').html("<img src='"+archivos+"Fotos/"+foto+"' width='60' height='60' alt='User' />");
+        $("#rol").html("Rol:"+rol);
+        //Eviaremos los datos del dispositivo despues de haberse logeado a la base de datos Mongo
+        $(document).ready(function(){
+            //ANUNCIOS
+            // Enviamos los datos al archivo anuncios.php y luego mostramos lo que obtenemos de este.
+            var datos ={
+                id   : ide,
+                grado: grupo,
+                id_e : id_es,
+                tipo :'Mostar_Acudiente'
+            }
+            $.getJSON(ruta+"anuncios.php", datos,function(data){
+          //Mostramos los anuncios  que obtenemos en data
+            $("#anun").html(data);
+
+            });
+
+            // Cronograma
+            var datos ={
+                tipo:'Mostrar',
+                id : ide,
+                inst: ins,
+                ano:año
+            }
+            $.post(ruta+"events.php", datos,function(data){
+          //Mostramos los eventos que obtenemos en data
+            $("#crono").html(data);
+
+            });
+
+             // Consultas Docentes
+            var datos ={
+                tipo:'Mostrar',
+                id_usu : ide,
+                inst: ins,
+                ano:año
+            }
+            $.getJSON(ruta+"consulta_docente.php", datos,function(data){
+          //Mostramos las consultas de los docentes almacenadas en data.
+            $("#conD").html(data);
+
+            });
+
+            // Consultas institucionales
+            var d ={
+                tipo:'Mostrar',
+                id_usu: ide,
+                inst: ins
+            }
+            $.post(ruta+"consulta_Ins.php",d,function(data){
+            // Motramos las consultas institucionales alamecenadas en data
+            $("#conI").html(data);
+            
+            }); 
+        }); 
+
+        //Agregamos el evento de cuando el dispositivo este listo y desencademos la funcion onDeviceReady.
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        //En esta funcion envio todos los datos del dispositivo a dispositivos.php por medio de la funcion ajax.
+        function onDeviceReady() {
+            // Almacenos la informacion correspondiente en las siguientes variables
+            var id       = ide;
+            var modelo   = device.model;
+            var platform =  device.platform;
+            var uuid     = device.uuid;
+            var version  = device.version;
+            var serial   = device.serial;
+            // En la funcion Ajax envio los datos a dispositivos.pgp con el metodo POST. 
+                $.ajax({
+                    url: ruta+'dispositivos.php',
+                    type: 'POST',
+                    data: 'id='+id+'&modelo='+modelo+'&plataforma='+platform+'&uuid='+uuid+'&version='+version+'&serial='+serial,
+                    // Con la funcion success recibo data
+                    success: function(data) {
+                        $('#deviceProperties').html("");
+                    }
+                });
+
+             window.FirebasePlugin.getToken(function(token) {
+            // obtengo el token y lo muestro en consola
+                var t = token;
+                var id = ide;
+                $.ajax({
+                    url: ruta+'usu.php',
+                    type: 'POST',
+                    data: 'id_usu='+id+'&token='+t,
+                    success: function(data) {
+                        console.log(data);
+                    }
+                });
+            }, function(error) {
+                console.error(error);
+            });
+             window.FirebasePlugin.subscribe("acudientes");
+        }
+    </script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="plugins/node-waves/waves.js"></script>
+   
+    <script src="js/admin.js"></script>
+    <!-- Demo Js -->
+    <script src="js/demo.js"></script>
+</body>
+
+</html>

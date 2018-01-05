@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>EscuelApp</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Bootstrap Select Css -->
+    <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
+    <!-- Multi Select Css -->
+    <link href="plugins/multi-select/css/multi-select.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Morris Chart Css-->
+    <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="css/themes/all-themes.css" rel="stylesheet" />
+</head>
+
+<body class="theme-blue">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Cargando...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" placeholder="Buscar...">
+        <div class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                <img src="images/book-3_icon-icons.com_49257.png" style="width: 37px; margin-top: 1px; margin-left: -16px;">
+                </a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand">EscuelApp</a>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <!-- Se carga la imagen traida del servidor -->
+                <div class="image" id="imagen">
+                </div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="nombre_usuario">
+                    <!-- Se carga el nombre del usuario logeado -->
+                    </div>
+                    <div class="email" id="email_usuario">
+                        <!-- Se carga el Email del usuario logeado -->
+                    </div>
+                    <div class="email" id="rol"><!-- Rol del Usuario --></div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="perfil.html"><i class="material-icons">person</i>Profile</a></li>
+                            <li role="seperator" class="divider"></li>
+                            <li><a href="../index.html"><i class="material-icons">input</i>Cerrar Sesion</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+           <div class="menu">
+                <ul class="list">
+                    <li class="header">MENU</li>
+                    <li class="active">
+                        <a id="home_docente">
+                            <i class="material-icons">home</i>
+                            <span>INICIO</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="observador">
+                            <i class="material-icons">search</i>
+                            <span>Observador</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a id="asistencia">
+                            <i class="material-icons">description</i>
+                            <span>Asistencia</span>
+                        </a>
+                    </li>
+                   <li>
+                        <a id="citaciones">
+                           <i class="material-icons">supervisor_account</i>
+                            <span>Citaciónes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="pqr">
+                            <i class="material-icons">forum</i>
+                            <span>PQR</span>
+                        </a>
+                    </li>
+                   <li>
+                        <a id="comunicados_Docentes">
+                            <i class="material-icons">insert_drive_file</i>
+                            <span>Comunicados</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="cronograma_docente">
+                            <i class="material-icons">event</i>
+                            <span>Cronograma</span>
+                        </a>
+                    </li>
+                     <li>
+                        <a id="horario_docente">
+                            <i class="material-icons">watch_later</i>
+                            <span>Horario De Clases</span>
+                        </a>
+                    </li>
+                </ul>  
+           </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2017 - 2018 <a href="javascript:void(0);">EscuelApp</a>.
+                </div>
+                <div class="version">
+                    <b>Version: </b> 1.0
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+        <!-- Right Sidebar -->
+        <aside id="rightsidebar" class="right-sidebar">
+           
+        </aside>
+        <!-- #END# Right Sidebar -->
+    </section>
+
+    <section class="content">
+    <!-- contenido -->
+     <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2 align="center">
+                       Crear Anuncio
+                    </h2>
+                </div>
+                <div class="body" >
+                <div class="table-responsive-vertical shadow-z-1">
+                   <form enctype="multipart/form-data" id="formuploadajax" method="post">
+                        <div id="id"></div>
+                        <div id="inst"></div>
+                        <div id="año"></div>
+                       <label>Titulo:</label>
+                       <input type="text" name="titulo" id="titulo" class="form-control">
+                       <br>
+                       <label>Contenido:</label>
+                       <br>
+                       <div class="col-xs-12">
+                       <textarea id="contenido" rows="4" name="contenido" class="form-control" required placeholder="Descripcion de Aviso"></textarea>
+                       </div>
+                       <div class="col-xs-12">
+                        <label>Seleccione Archivo</label>
+                           <input type="file" name="archivo" id="archivo" class="form-control">
+                       </div>
+                       <!-- <div class="col-xs-2" style="margin-left: -12px;margin-top: 6px;">
+                       <button type='button' class='btn bg-grey btn-circle waves-effect waves-circle waves-float' id="captura">
+                        <i class='material-icons'>add_a_photo</i>
+                        </button>
+                        </div> -->
+                         <!-- <img style="display: none; width: 250px; height: 250px;" id="miimagen" src=""/> -->
+                        <label>Fecha De Publicación:</label>
+                        <div id="fecha_p"></div>
+                        <!-- <input type="date" name="fecha_public" id="fecha_public" class="form-control"> -->
+                        <br>
+                       <label>Fecha De Finalización:</label>
+                       <div id="fecha_f"></div>
+                       <!-- <input type="date" name="fecha_fin" id="fecha_fin" class="form-control"> -->
+                       <br>
+                       <label>Grupos:</label>
+                       <div class="col-md-3" id="grupo">
+                           
+                       </div>
+                       <label>Estudiantes</label>
+                       <div id="Estudiantes"></div>
+                       <br>
+                       <input type="submit" name="enviar" value="Enviar Anuncio" id="enviar_anuncio" class="btn bg-teal">
+                   </form>
+                </div>
+                </div>
+                 <div id="mensaje"></div>
+            </div>
+         </div>
+    </div>
+    </section>
+
+    <!-- Jquery Core Js -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="js/root.js"></script>
+    <script type="text/javascript">
+
+        function gup(name){
+            var regexS = "[\\?&]"+name+"=([^&#]*)";
+            var regex = new RegExp ( regexS );
+            var tmpURL = window.location.href;
+            var results = regex.exec( tmpURL );
+            if( results == null )
+                return"";
+            else
+                return results[1];
+        }
+        var ide = gup('ide');
+        var nombre = gup('nombre');
+        var email = gup('email');
+        var foto = gup('foto');
+        var inst = gup('inst');
+        var grupo = gup('grupo');
+        var año  = gup('ano');
+        var id_do  = gup('id_doc');
+        var tel = gup('tel');
+        var rol = gup("rol");
+        var nom = nombre.replace('%20', ' ');
+        var nombreset = nom.replace('%20', ' '); 
+
+        $('#nombre_usuario').html(nombreset);
+        $('#email_usuario').html(email);
+        $('#imagen').html("<img src='"+archivos+"Fotos/"+foto+"' width='60' height='60' alt='User' />");
+        $("#rol").html("Rol:"+rol);
+
+        $(document).ready(function(){
+            var datos = {
+                tipo: 'anuncio',
+                ins: inst,
+                ano: año
+            }
+            $.post(ruta+"grupos.php",datos,function(data){
+            //Validamos lo que obtenemos en data
+            $("#grupo").html(data);
+            $("#id").html("<input type='hidden' name='id' value='"+ide+"'>");
+            $("#inst").html("<input type='hidden' name='inst' value='"+inst+"'>");
+            $("#año").html("<input type='hidden' name='ano' value='"+año+"'>");
+
+             }); 
+             $.post(ruta+"validar_anuncio.php?tipo=fecha_publica",function(data){
+                //Cargamos lo que obtenemos en data
+                $("#fecha_p").html(data);
+             }); 
+
+              $.post(ruta+"validar_anuncio.php?tipo=fecha_final",function(data){
+                //Cargamos lo que obtenemos en data
+                $("#fecha_f").html(data);
+             });   
+        });
+
+        $(document).on("change", "#grado", function(){
+             var datos ={
+                tipo:'anuncio',
+                grado: $("#grado").val()
+            }
+            $.post(ruta+"student.php",datos,function(data){
+            //Validamos lo que obtenemos en data
+                 $("#Estudiantes").html(data);
+            });
+        });
+
+
+        $("#formuploadajax").on("submit", function(e){
+            e.preventDefault();
+            var f = $(this);
+            var formData = new FormData(document.getElementById("formuploadajax"));
+            $.ajax({
+                url: ruta+"crud_Anuncios.php?tipo=Crear",
+                type: "post",
+                dataType: "html",
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false
+                })
+                .done(function(res){
+                    $("#mensaje").html(res);
+                    setTimeout(function() {
+                         $(".men1,.men2,.men3,.men4,.men5,.men6").fadeOut(3000);
+                    },2000);
+                     window.location.href = ('home_docente.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&rol='+rol);
+            });
+        });
+
+        $('#home_docente').on('click',function(){
+             window.location.href = ('home_docente.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+        });
+
+        $('#observador').on('click',function(){
+             window.location.href = ('observador.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+        });
+
+        $('#asistencia').on('click',function(){
+             window.location.href = ('asistencia.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+        });
+
+        $('#citaciones').on('click',function(){
+             window.location.href = ('citacion.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+        });
+
+        $('#pqr').on('click',function(){
+             window.location.href = ('pqr_docente.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+        });
+
+        $('#comunicados_Docentes').on('click',function(){
+             window.location.href = ('comunicados_Docentes.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+        });
+
+        $('#cronograma_docente').on('click',function(){
+             window.location.href = ('cronograma_docente.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+        });
+
+        $('#horario_docente').on('click',function(){
+             window.location.href = ('horario_docente.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+        });
+
+        $('#agregar_anuncio').on('click',function(){
+             window.location.href = ('agregar_anuncio.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&rol='+rol);
+        });
+    </script>
+    <!-- grupos de estudio -->
+    <!-- TRAER DATOS para mostrarlos en tabla -->
+    <!-- <script src="js/crear_anuncio.js"></script> -->
+    <script type="text/javascript" src="../cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <!-- Bootstrap Core Js -->
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+      <!-- Select Plugin Js -->
+    <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Multi Select Plugin Js -->
+    <script src="plugins/multi-select/js/jquery.multi-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="plugins/node-waves/waves.js"></script>
+
+    <!-- Custom Js -->
+    <script src="js/admin.js"></script>
+
+    <!-- Demo Js -->
+    <script src="js/demo.js"></script>
+</body>
+
+</html>

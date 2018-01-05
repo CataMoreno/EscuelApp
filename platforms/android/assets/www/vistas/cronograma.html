@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>EscuelApp</title>
+   <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap Select Css -->
+    <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
+    <!-- Waves Effect Css -->
+    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" type="text/css" href="plugins/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.min.css"> -->
+
+    <!-- jquery-iu -->
+    <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="css/themes/all-themes.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/fullcalendar.css">
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="js/fullcalendar.js"></script>
+    <!-- root js -->
+    <script src="js/root.js"></script>
+    <!-- Cronograma js -->
+    <script>
+
+        $(document).ready(function() {
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear(); 
+            
+            /*  className colors
+            
+            className: default(transparent), important(red), chill(pink), success(green), info(blue)
+            
+            */      
+            
+              
+            /* initialize the external events
+            -----------------------------------------------------------------*/
+        
+            $('#external-events div.external-event').each(function() {
+
+            
+                // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+                // it doesn't need to have a start or end
+                var eventObject = {
+
+                    title: $.trim($(this).text()) // use the element's text as the event title
+                };
+                
+                // store the Event Object in the DOM element so we can get to it later
+                $(this).data('eventObject', eventObject);
+                
+                // make the event draggable using jQuery UI
+                $(this).draggable({
+
+                    zIndex: 999,
+                    revert: true,      // will cause the event to go back to its
+                    revertDuration: 0  //  original position after the drag
+                });
+                
+            });
+        
+        
+            /* initialize the calendar
+            -----------------------------------------------------------------*/
+            
+            var calendar =  $('#calendar').fullCalendar({
+                themeSystem:'bootstrap3',
+                // Header lo que mostramos en la cabecera del calendario
+                header: {
+                    left:   'prev',
+                    center: 'title',
+                    right:  'next'
+                },
+                // Mostramos los eventos creados obtenidos de events.php con tipo = listar
+                events: 
+                { 
+                url: ruta+'events.php?tipo=listar', 
+                allDay: false
+                }, 
+                // Al darle click en el evento nos muestra los detalles del mismo
+                eventClick: function(event) {
+                    var data = {
+                        id : event.aecronograma_id,
+                        tipo : 'obtener'
+                    }
+                
+                     $.post(ruta+"events.php",data,function(data){
+                        $('#cont').html(data);
+                        // Mostramos los detalles del evento en la Modal
+                         $('#ModalEdit').modal('show');
+                    });
+
+                },
+                 buttonText:{
+                    today:    'Hoy',
+                    month:    'Mes',
+                    week:     'Semana',
+                    day:      'Dia'
+                },
+                editable: true,
+                eventLimit:true,
+                firstDay: 1, //  1(Monday) this can be changed to 0(Sunday) for the USA system
+                selectable: true,
+                defaultView: 'month',
+                axisFormat: 'h:mm',
+                columnFormat: {
+                    month: 'ddd',    // Mon
+                    week: 'ddd d', // Mon 7
+                    day: 'dddd M/d',  // Monday 9/7
+                    agendaDay: 'dddd d'
+                },
+                titleFormat: {
+                    month: 'MMMM yyyy', // September 2009
+                    week: "MMMM yyyy", // September 2009
+                    day: 'MMMM yyyy'                  // Tuesday, Sep 8, 2009
+                },
+                allDaySlot: false,
+                selectHelper: true,
+                select: function(start, end, allDay) {
+                    // var title = prompt('Titulo Del Evento:');
+                   // $('#ModalAdd').modal('show');
+                    var title = $('#title').val();
+                    if (title) {
+                        calendar.fullCalendar('renderEvent',
+                            {
+                                title: title,
+                                start: start,
+                                end: end,
+                                allDay: allDay
+                            },
+                            true // make the event "stick"
+                        );
+                    }
+                    calendar.fullCalendar('unselect');
+                },
+                droppable: true, // this allows things to be dropped onto the calendar !!!
+                drop: function(date, allDay) { // this function is called when something is dropped
+                
+                    // retrieve the dropped element's stored Event Object
+                    var originalEventObject = $(this).data('eventObject');
+                    
+                    // we need to copy it, so that multiple events don't have a reference to the same object
+                    var copiedEventObject = $.extend({}, originalEventObject);
+                    
+                    // assign it the date that was reported
+                    copiedEventObject.start = date;
+                    copiedEventObject.allDay = allDay;
+                    
+                    // render the event on the calendar
+                    // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+                    $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+                    
+                    // is the "remove after drop" checkbox checked?
+                    if ($('#drop-remove').is(':checked')) {
+                        // if so, remove the element from the "Draggable Events" list
+                        $(this).remove();
+                    }
+                    
+                },
+                
+                      
+            monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+            monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+            dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+            dayNamesShort: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
+           
+        });
+        });
+    </script>
+    <!-- Estilo del Calendario -->
+    <style>
+
+        body {
+            margin-bottom: 40px;
+            margin-top: 40px;
+            font-size: 14px;
+            font-family: 'Roboto', sans-serif;
+            background:url(http://www.digiphotohub.com/wp-content/uploads/2015/09/bigstock-Abstract-Blurred-Background-Of-92820527.jpg);
+            }
+            
+        #external-events {
+            float: left;
+            width: 150px;
+            padding: 0 10px;
+            text-align: left;
+            }
+            
+        #external-events h4 {
+            font-size: 16px;
+            margin-top: 0;
+            padding-top: 1em;
+            }
+            
+        .external-event { /* try to mimick the look of a real event */
+            margin: 10px 0;
+            padding: 2px 4px;
+            background: #3366CC;
+            color: #fff;
+            font-size: .85em;
+            cursor: pointer;
+            }
+            
+        #external-events p {
+            margin: 1.5em 0;
+            font-size: 11px;
+            color: #666;
+            }
+            
+        #external-events p input {
+            margin: 0;
+            vertical-align: middle;
+            }
+
+        #calendar {
+        /*float: right; */
+            margin: auto;
+    
+        background-color: #FFFFFF;
+          border-radius: 6px;
+        box-shadow: 0 1px 2px #C3C3C3;
+        -webkit-box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
+        -moz-box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
+        box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
+        }
+    </style>
+
+</head>
+
+<body class="theme-blue">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Cargando...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" placeholder="Buscar...">
+        <div class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <!-- Logo de la App -->
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                <img src="images/book-3_icon-icons.com_49257.png" style="width: 37px; margin-top: 1px; margin-left: -16px;">
+                </a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand">EscuelApp</a>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <!-- Cargamos la Images del Usuario registrado -->
+                <div class="image" id="foto_Acudiente">
+                </div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="nombre_acudiente"><!-- NOMBRE DEL ACUDIENTE --></div>
+                    <div class="email" id="email_acudiente"><!-- NOMBRE DEL ESTUDIANTE --></div>
+                    <div class="email" id="rol"><!-- Rol del usuario --></div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Perfil</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Cerrar Sesion</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+           <div class="menu">
+                <ul class="list">
+                    <li class="header">MENU</li>
+                    <li>
+                        <a id="home">
+                            <i class="material-icons">home</i>
+                            <span>HOME</span>
+                        </a>
+                    </li>
+                    <li  class="active">
+                        <a id="cronograma">
+                            <i class="material-icons">event</i>
+                            <span>Cronograma</span>
+                        </a>
+                    </li>
+                     <li>
+                        <a id="horario_acudiente">
+                            <i class="material-icons">schedule</i>
+                            <span>Horario De Clases</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="excusas">
+                            <i class="material-icons">event_available</i>
+                            <span>Excusas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="consulta_docente">
+                           <i class="material-icons">account_circle</i>
+                            <span>Consultar Docente</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="consulta_institucion">
+                            <i class="material-icons">business</i>
+                            <span>Consultar Institución</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="atencion_publico" >
+                            <i class="material-icons">record_voice_over</i>
+                            <span>PQR</span>
+                        </a>
+                    </li>
+                   <li>
+                        <a id="solicitud">
+                            <i class="material-icons">insert_drive_file</i>
+                            <span>Solicitar Certificado</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="comunicados">
+                            <i class="material-icons">book</i>
+                            <span>Citaciones</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="materiales">
+                            <i class="material-icons">content_cut</i>
+                            <span>Útiles Y Otros Materiales</span>
+                        </a>
+                    </li>
+                </ul>  
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2017 - 2018 <a href="javascript:void(0);">EscuelApp</a>.
+                </div>
+                <div class="version">
+                    <b>Version: </b> 1.0
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+    </section>
+
+    <section class="content">
+    <!-- contenido -->
+
+      <h1 align="center">Cronograma</h1>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+            <div id='calendar'></div>
+
+            <div style='clear:both'></div>
+        </div>
+        <div id='cont'>      
+        </div>
+
+    </section>
+
+    <!-- SETEO LOS DATOS EN LA INTERFAZ -->
+    <script type="text/javascript">
+
+        function gup(name){
+            var regexS = "[\\?&]"+name+"=([^&#]*)";
+            var regex = new RegExp ( regexS );
+            var tmpURL = window.location.href;
+            var results = regex.exec( tmpURL );
+            if( results == null )
+                return"";
+            else
+                return results[1];
+        }
+       
+        var nombre = gup('nombre');
+        var email = gup('email');
+        var foto = gup('foto');
+        var ide = gup('id');
+        var año = gup('ano');
+        var ins = gup('ins');
+        var grupo = gup('grupo');
+        var tel  = gup('tel');
+        var id_es = gup('id_E');
+        var rol = gup('rol');
+        var nom = nombre.replace('%20', ' ');
+        var nombreset = nom.replace('%20', ' '); 
+ 
+
+        $('#nombre_acudiente').html(nombreset);
+        $('#email_acudiente').html(email);
+        $('#foto_Acudiente').html("<img src='"+archivos+"Fotos/"+foto+"' width='60' height='60' alt='User' />");
+        $("#rol").html("Rol:"+rol);
+
+         $('#home').on('click',function(){
+             window.location.href = ('home.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&id='+ide+'&ano='+año+'&ins='+ins+'&grupo='+grupo+'&id_E='+id_es+'&rol='+rol);
+        });
+
+        $('#cronograma').on('click',function(){
+             window.location.href = ('cronograma.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&id='+ide+'&ano='+año+'&ins='+ins+'&grupo='+grupo+'&id_E='+id_es+'&rol='+rol);
+        });
+
+        $('#horario_acudiente').on('click',function(){
+             window.location.href = ('horario_acudiente.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&id='+ide+'&ano='+año+'&ins='+ins+'&grupo='+grupo+'&id_E='+id_es+'&rol='+rol);
+        });
+
+        $('#excusas').on('click',function(){
+             window.location.href = ('excusas.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&id='+ide+'&ano='+año+'&ins='+ins+'&grupo='+grupo+'&id_E='+id_es+'&rol='+rol);
+        });
+
+        $('#consulta_docente').on('click',function(){
+             window.location.href = ('consulta_docente.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&id='+ide+'&ano='+año+'&ins='+ins+'&grupo='+grupo+'&id_E='+id_es+'&rol='+rol);
+        });
+
+        $('#consulta_institucion').on('click',function(){
+             window.location.href = ('consulta_institucion.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&id='+ide+'&ano='+año+'&ins='+ins+'&grupo='+grupo+'&id_E='+id_es+'&rol='+rol);
+        });
+
+        $('#atencion_publico').on('click',function(){
+             window.location.href = ('atencion_publico.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&id='+ide+'&ano='+año+'&ins='+ins+'&grupo='+grupo+'&tel='+tel+'&id_E='+id_es+'&rol='+rol);
+        });
+
+        $('#solicitud').on('click',function(){
+             window.location.href = ('solicitud.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&id='+ide+'&ano='+año+'&ins='+ins+'&grupo='+grup+'&id_E='+id_es+'&rol='+rol);
+        });
+
+        $('#comunicados').on('click',function(){
+             window.location.href = ('comunicados.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&id='+ide+'&ano='+año+'&ins='+ins+'&grupo='+grupo+'&id_E='+id_es+'&rol='+rol);
+        });
+
+        $('#materiales').on('click',function(){
+             window.location.href = ('materiales.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&id='+ide+'&ano='+año+'&ins='+ins+'&grupo='+grupo+'&id_E='+id_es+'&rol='+rol);
+        });
+
+    </script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="plugins/node-waves/waves.js"></script>
+    <!-- Custom Js -->
+    <script src="js/admin.js"></script>
+    <!-- Demo Js -->
+    <script src="js/demo.js"></script>
+</body>
+
+</html>

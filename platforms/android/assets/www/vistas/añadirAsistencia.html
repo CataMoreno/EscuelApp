@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <title>EscuelApp</title>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+        <!-- Bootstrap Core Css -->
+        <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <!-- Waves Effect Css -->
+        <link href="plugins/node-waves/waves.css" rel="stylesheet" />
+        <!-- jquery-datatable Css -->
+        <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+        <!-- Animation Css -->
+        <link href="plugins/animate-css/animate.css" rel="stylesheet" />
+        <!-- Morris Chart Css-->
+        <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
+        <!-- Custom Css -->
+        <link href="css/style.css" rel="stylesheet">
+        <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+        <link href="css/themes/all-themes.css" rel="stylesheet" />
+    </head>
+
+    <body class="theme-blue">
+        <!-- Page Loader -->
+        <div class="page-loader-wrapper">
+            <div class="loader">
+                <div class="preloader">
+                    <div class="spinner-layer pl-blue">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <p>Cargando...</p>
+            </div>
+        </div>
+        <!-- #END# Page Loader -->
+        <!-- Overlay For Sidebars -->
+        <div class="overlay"></div>
+        <!-- #END# Overlay For Sidebars -->
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <div class="search-icon">
+                <i class="material-icons">search</i>
+            </div>
+            <input type="text" placeholder="Buscar...">
+            <div class="close-search">
+                <i class="material-icons">close</i>
+            </div>
+        </div>
+        <!-- #END# Search Bar -->
+        <!-- Top Bar -->
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                    <img src="images/book-3_icon-icons.com_49257.png" style="width: 37px; margin-top: 1px; margin-left: -16px;">
+                    </a>
+                    <a href="javascript:void(0);" class="bars"></a>
+                    <a class="navbar-brand">EscuelApp</a>
+                </div>
+            </div>
+        </nav>
+        <!-- #Top Bar -->
+        <section>
+            <!-- Left Sidebar -->
+            <aside id="leftsidebar" class="sidebar">
+                <!-- User Info -->
+                <div class="user-info">
+                    <!-- Se carga la imagen traida del servidor -->
+                    <div class="image" id="imagen">
+                    </div>
+                    <div class="info-container">
+                        <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="nombre_usuario">
+                        <!-- Se carga el nombre del usuario logeado -->
+                        </div>
+                        <div class="email" id="email_usuario">
+                            <!-- Se carga el Email del usuario logeado -->
+                        </div>
+                        <div class="email" id="rol"><!-- Rol del Usuario --></div>
+                        <div class="btn-group user-helper-dropdown">
+                            <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="perfil.html"><i class="material-icons">person</i>Profile</a></li>
+                                <li role="seperator" class="divider"></li>
+                                <li><a href="../index.html"><i class="material-icons">input</i>Cerrar Sesion</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- #User Info -->
+                <!-- Menu -->
+               <div class="menu">
+                    <ul class="list">
+                        <li class="header">MENU</li>
+                        <li>
+                            <a id="home_docente">
+                                <i class="material-icons">home</i>
+                                <span>INICIO</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="observador">
+                                <i class="material-icons">search</i>
+                                <span>Observador</span>
+                            </a>
+                        </li>
+
+                        <li  class="active">
+                            <a id="asistencia">
+                                <i class="material-icons">description</i>
+                                <span>Asistencia</span>
+                            </a>
+                        </li>
+                       <li>
+                            <a id="citaciones">
+                               <i class="material-icons">supervisor_account</i>
+                                <span>Citaciónes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="pqr">
+                                <i class="material-icons">forum</i>
+                                <span>PQR</span>
+                            </a>
+                        </li>
+                       <li>
+                            <a id="comunicados_Docentes">
+                                <i class="material-icons">insert_drive_file</i>
+                                <span>Comunicados</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a id="cronograma_docente">
+                                <i class="material-icons">date_range</i>
+                                <span>Cronograma</span>
+                            </a>
+                        </li>
+                         <li>
+                            <a id="horario_docente">
+                                <i class="material-icons">watch_later</i>
+                                <span>Horario De Clases</span>
+                            </a>
+                        </li>
+                    </ul>  
+               </div>
+                <!-- #Menu -->
+                <!-- Footer -->
+                <div class="legal">
+                    <div class="copyright">
+                        &copy; 2017 - 2018 <a href="javascript:void(0);">EscuelApp</a>.
+                    </div>
+                    <div class="version">
+                        <b>Version: </b> 1.0
+                    </div>
+                </div>
+                <!-- #Footer -->
+            </aside>
+            <!-- #END# Left Sidebar -->
+            <!-- Right Sidebar -->
+            <aside id="rightsidebar" class="right-sidebar">
+               
+            </aside>
+            <!-- #END# Right Sidebar -->
+        </section>
+        <section class="content">
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2 align="center">
+                            ASISTENCIA DE ESTUDIANTES
+                        </h2>
+                    </div>
+                    <div class="body">
+                    <label>Seleccione Grado:</label>
+                    <div id="grado">
+
+                    </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div id="lista_asistencia">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- Jquery Core Js -->
+        <script src="plugins/jquery/jquery.min.js"></script>
+        <!-- En este archivo declaro la variable ruta la cual contiene el host donde hospedo mi php -->
+        <script src="js/root.js"></script>
+        <!-- esta funcion sirve para mandar el id del docente -->
+        <script type="text/javascript">
+
+            $(document).ready(function(){
+              // Funcion que me obtiene los datos enviados por la Url     
+                function gup(name){
+                var regexS = "[\\?&]"+name+"=([^&#]*)";
+                var regex = new RegExp ( regexS );
+                var tmpURL = window.location.href;
+                var results = regex.exec( tmpURL );
+
+                if( results == null )
+                    return"";
+                else
+                    return results[1];
+                }
+             // Guado los datos con la funcion gup en las diferentes variables
+                var ide = gup('ide');
+                var nombre = gup('nombre');
+                var email = gup('email');
+                var foto = gup('foto');
+                var inst = gup('inst');
+                var grupo = gup('grupo');
+                var año  = gup('ano');
+                var id_do  = gup('id_doc');
+                var tel = gup('tel');
+                var rol = gup("rol");
+                var nom = nombre.replace('%20', ' ');
+                var nombreset = nom.replace('%20', ' ');
+
+                // Envio el id del docente al archivo crud_asistencia.php 
+                $.ajax({
+                    url:  ruta+'crud_asistencia.php',
+                    type: 'POST',
+                    data: 'docente='+ide,
+                    success: function() {
+
+                    }
+                });
+
+                $('#nombre_usuario').html(nombreset);
+                $('#email_usuario').html(email);
+                $('#imagen').html("<img src='"+archivos+"Fotos/"+foto+"' width='60' height='60' alt='User' />");
+                $("#rol").html("Rol:"+rol);
+
+                 // cuando le de click en cada uno de los items del menu me redirecciona a un html con los datos correspondientes
+
+                $('#home_docente').on('click',function(){
+                     window.location.href = ('home_docente.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+                });
+
+                $('#observador').on('click',function(){
+                     window.location.href = ('observador.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+                });
+
+                $('#asistencia').on('click',function(){
+                     window.location.href = ('asistencia.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+                });
+
+                $('#citaciones').on('click',function(){
+                     window.location.href = ('citacion.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+                });
+
+                $('#pqr').on('click',function(){
+                     window.location.href = ('pqr_docente.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+                });
+
+                $('#comunicados_Docentes').on('click',function(){
+                     window.location.href = ('comunicados_Docentes.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+                });
+
+                $('#cronograma_docente').on('click',function(){
+                     window.location.href = ('cronograma_docente.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+                });
+
+                $('#horario_docente').on('click',function(){
+                     window.location.href = ('horario_docente.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+                });
+
+
+                $.ajax({
+                    url: ruta+'asistencia.php',
+                    type: 'POST',
+                    data: 'docente='+ide,
+                    success: function() {
+
+                    }
+                });
+
+                    var datos = {
+                        tipo:'asistencia',
+                        inst: inst,
+                        ano : año
+                    }
+                    $.post(ruta+"grupos.php",datos,function(data){
+                          //Validamos lo que obtenemos en data
+                        if (data != "") {
+
+                            $("#grado").html(data);
+
+                        }else{
+
+                            $("#grado").html("No hay grupos activos en el momento");
+                        }
+
+                    });
+
+                   $(document).on("change", "#grupo", function(){
+                        var datos = {
+                          grupo : $("#grupo").val()
+                        
+                        };
+                    // Enviamos los datos a la url especificada
+                        $.post(ruta+"asistencia.php", datos, function(data){
+                              //Validamos lo que obtenemos en data
+                              $("#lista_asistencia").html(data);
+                         });
+                    });
+         
+            });
+       </script>
+        <!-- Bootstrap Core Js -->
+        <script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+        <!-- Select Plugin Js -->
+        <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+        <!-- Slimscroll Plugin Js -->
+        <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+        <!-- Waves Effect Plugin Js -->
+        <script src="plugins/node-waves/waves.js"></script>
+
+        <!-- Custom Js -->
+        <script src="js/admin.js"></script>
+
+        <!-- Demo Js -->
+        <script src="js/demo.js"></script>
+    </body>
+
+</html>

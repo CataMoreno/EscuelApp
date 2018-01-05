@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+  <head>
+    <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+        https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+    <Meta http-equiv = "Contenido-Política de seguridad" content = "default-src 'self' data: gap: https://192.168.1.54m'unsafe-eval' Inline '; media-src * ">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' 192.168.1.54m"> -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <!-- bootstrap Css -->
+    <link rel="stylesheet" type="text/css" href="vistas/plugins/bootstrap/css/bootstrap.css">
+    <!-- login Css -->
+    <link rel="stylesheet" href="vistas/css/login.css">
+    <meta charset="utf-8">
+    <title>EscuelApp</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-container">
+        <div id="output"></div>
+        <div class="avatar"></div>
+        <div class="form-box">
+        <form class="form" >
+            <input type="number" placeholder="Usuario" id="txtLogin">
+            <input type="password" placeholder="Contraseña" id="txtPasswd">
+            <button type="button" class="ingreso btn btn-primary btn-block login" id="sql">Ingresar</button>
+        </form>
+        <br><br>
+      </div>
+      <div id="mensaje"></div>
+    </div>
+
+     <!-- JQuery Js -->
+    <script src="vistas/plugins/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="vistas/js/Sqlite.js"></script>
+    <script type="text/javascript" src="vistas/js/index.js"></script> 
+    <!-- Modal de terminos Y condiciones -->
+    <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 align="center" class="modal-title" id="defaultModalLabel">TÉRMINOS Y CONDICIONES DE USO</h4>
+              </div>
+              <div class="modal-body">
+                  <p align="Justify">
+                    Los siguientes términos y condiciones regulan la descarga, el acceso y el
+                    uso de la aplicación móvil de ASSA Compañía de Seguros (en
+                    adelante la “Aplicación” o el “App”) en la que se otorga la presente
+                    licencia de uso (en adelante “La licencia de uso”).
+                    ASSA Compañía de Seguros, (en adelante, “La Empresa”) es titular de
+                    la Aplicación y posee todos los derechos de explotación sobre la misma
+                    y por ello tiene la capacidad para licenciar a los usuarios la presente
+                    Aplicación. <br>
+                    1. Condiciones de acceso a la aplicación y uso.
+                    El acceso a la Aplicación se realiza a través de internet en la página Web
+                    www.assanet.com o a través de cualquier otro distribuidor siempre con
+                    la autorización previa de “ASSA”. En ningún caso será válida ninguna
+                    licencia o descarga a través de terceros no autorizados.
+                    Mediante la aceptación de las presentes Condiciones, “ASSA” otorga al
+                    Usuario una licencia de Uso, con el fin de instalar la Aplicación en su
+                    dispositivo móvil (teléfono móvil, tableta, etc.) y usarla única y
+                    exclusivamente con el objeto de acceder a los diferentes servicios que la
+                    empresa ofrece.
+                    Corresponden a “ASSA” todos los derechos sobre la Aplicación,
+                    incluyendo el diseño gráfico, contenidos y bases de datos que
+                    comprendan el App, por ser de su propiedad u ostentar las licencias
+                    necesarias.
+                    La licencia tiene carácter limitado y no exclusivo, y el Usuario, en ningún
+                    caso podrá ceder, sub licenciar, arrendar, distribuir u otorgar derechos
+                    de ningún tipo a terceros sobre la licencia concedida. No podrá realizar
+                    ninguna modificación de ningún tipo, ni tampoco podrá usar la
+                    Aplicación con otras finalidades diferentes a los servicios ofrecidos por
+                    “ASSA”.
+                    “ASSA” se reserva el derecho de realizar todas las modificaciones y
+                    mejoras que sean necesarias en su “App”, las mismas estarán a
+                    disposición de los Usuarios. Se le recomienda a los Usuarios, que 
+                    mantengan la aplicación actualizada con el fin de evitar cualquier
+                    inconveniente. <br>
+                    2. Condiciones de uso sobre los servicios ofrecidos.
+                    Las presentes condiciones de uso regularán la utilización del “App” sin
+                    perjuicio de las condiciones a las que estén sujetas cada uno de los
+                    servicios a los que el Usuario pueda acceder a través de la Aplicación,
+                    que se regirán por los propios contratos suscritos entre el cliente con
+                    “ASSA”.
+                    En algunos casos, los Usuarios solamente podrán acceder a los servicios
+                    mediante claves de acceso configuradas previamente en la página web:
+                    www.assanet.com, por lo que el acceso a dichos servicios, sin perjuicio
+                    de que se realice exclusivamente a través de la Aplicación, quedará
+                    sujeta a los contratos firmados entre el Usuario y el titular del Servicio.
+                    Para hacer uso de la Aplicación, se requiere de un dispositivo compatible
+                    y con acceso a Internet. La Aplicación podrá requerir que tenga
+                    actualizado el sistema operativo a fin de que no se vea afectado el
+                    rendimiento de la misma.
+                    Es responsabilidad de “ASSA” garantizar la seguridad en los servicios a
+                    los que se pueda acceder mediante la misma. En cuanto a las claves de
+                    acceso a los Servicios, será el Usuario el único responsable de su uso e
+                    introducción en la Aplicación. Asimismo, el Usuario, será el único
+                    responsable de la seguridad, uso y custodia del dispositivo móvil en
+                    donde se instale la Aplicación. <br>
+                    3. Geolocalización.
+                    Las presentes condiciones de uso regularán la utilización del “App” sin
+                    perjuicio de las condiciones a las que estén sujetas cada uno de los
+                    servicios a los que el Usuario pueda acceder a través de la Aplicación,
+                    que se regirán por los propios contratos suscritos entre el Usuario como
+                    cliente con “ASSA”.
+                  </p>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary waves-effect" id="btn-enviar">Aceptar</button>
+                  <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Rechazar</button>
+              </div>
+          </div>
+      </div>
+    </div>
+    <!-- Bootstrap Core Js -->
+    <script src="vistas/plugins/bootstrap/js/bootstrap.js"></script>
+    <!-- root JS -->
+    <script src="vistas/js/root.js"></script>
+    <!-- validacion del Login -->
+    <!-- <script src="vistas/js/validar.js"></script> -->
+  </body>
+</html>

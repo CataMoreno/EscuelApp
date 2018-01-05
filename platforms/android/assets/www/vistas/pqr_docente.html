@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>EscuelApp</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="css/themes/all-themes.css" rel="stylesheet" />
+</head>
+
+<body class="theme-blue">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Cargando...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" placeholder="Buscar...">
+        <div class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+                <img src="images/book-3_icon-icons.com_49257.png" style="width: 37px; margin-top: 1px; margin-left: -16px;">
+                </a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" >EscuelApp</a>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="image" id="foto_Acudiente">
+        
+                </div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="nombre_acudiente"><!-- NOMBRE DEL ACUDIENTE --></div>
+                    <div class="email" id="email_acudiente"><!-- NOMBRE DEL ESTUDIANTE --></div>
+                    <div class="email" id="rol"><!-- Rol del Usuario --></div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Perfil</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Cerrar Sesion</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+           <div class="menu">
+                <ul class="list">
+                    <li class="header">MENU</li>
+                    <li>
+                        <a id="home_docente">
+                            <i class="material-icons">home</i>
+                            <span>INICIO</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="observador">
+                            <i class="material-icons">search</i>
+                            <span>Observador</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a id="asistencia">
+                            <i class="material-icons">description</i>
+                            <span>Asistencia</span>
+                        </a>
+                    </li>
+                   <li>
+                        <a id="citaciones">
+                           <i class="material-icons">supervisor_account</i>
+                            <span>Citaciónes</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a id="pqr">
+                            <i class="material-icons">forum</i>
+                            <span>PQR</span>
+                        </a>
+                    </li>
+                   <li>
+                        <a id="comunicados_Docentes">
+                            <i class="material-icons">insert_drive_file</i>
+                            <span>Comunicados</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="cronograma_docente">
+                            <i class="material-icons">event</i>
+                            <span>Cronograma</span>
+                        </a>
+                    </li>
+                     <li>
+                        <a id="horario_docente">
+                            <i class="material-icons">watch_later</i>
+                            <span>Horario De Clases</span>
+                        </a>
+                    </li>
+                </ul>  
+           </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; 2017 - 2018 <a href="javascript:void(0);">EscuelApp</a>.
+                </div>
+                <div class="version">
+                    <b>Version: </b> 1.0
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+    </section>
+
+    <section class="content">
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2 align="center">
+                           <b>PQR</b>
+                           <button type="button" class="btn bg-green btn-circle waves-effect waves-circle waves-float" id='mostrar_pqr' style="float: right;margin-top: -14px;"><i class="material-icons">mail</i>
+                            </button><br><br>
+                            <span style="float: right;margin-top:-10px;margin-right:-7px; font-size: medium;">Enviados</span>
+                        </h2>
+                    </div>
+                    <div class="body">
+                    <form enctype="multipart/form-data" id="formuploadajax" method="post">
+                        <div class="col-sm-6">
+                            <div id="nom"></div>
+                            <div id="telefono"></div>
+                            <div id="ema"></div>
+                            <div id="user"></div>
+                            <div id="inst"></div>
+                            <div id="ano"></div>
+                        <div class="col-sm-6">
+                           <label>Tipo de Solicitud</label><br>
+                            <select name="tipo_solicitud" class="form-control" id="tipo_solicitud" required>
+                                <option value="1">Petición</option>
+                                <option value="2">Quejas</option>
+                                <option value="3">Reclamos</option>
+                                <option value="4">Felicitaciones</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Seleccione Archivo</label><br>
+                            <input type="file" name="archivo" class="form-control">
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Descripcion de la Solicitud</label>
+                            <textarea rows="4" cols="30" name="mensaje" class="form-control" id="mensaje"  placeholder="Escribe un mensaje" required></textarea>
+                        </div>
+                        <input type="hidden" name="tipo" value="Crear">
+                        <div class="col-sm-6">
+                           <input type="submit" id="btn_enviar_pqr" class="btn btn-success form-control" value="Enviar">
+                        </div>
+                    </form>
+                    <div id="men"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jquery Core Js -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="js/root.js"></script>
+    <!-- SETEO LOS DATOS EN LA INTERFAZ -->
+    <script type="text/javascript">
+
+        function gup(name){
+            var regexS = "[\\?&]"+name+"=([^&#]*)";
+            var regex = new RegExp ( regexS );
+            var tmpURL = window.location.href;
+            var results = regex.exec( tmpURL );
+            if( results == null )
+                return"";
+            else
+                return results[1];
+        }
+        var ide = gup('ide');
+        var nombre = gup('nombre');
+        var email = gup('email');
+        var foto = gup('foto');
+        var inst = gup('inst');
+        var grupo = gup('grupo');
+        var año  = gup('ano');
+        var id_do  = gup('id_doc');
+        var tel = gup('tel');
+        var rol = gup("rol");
+        var nom = nombre.replace('%20', ' ');
+        var nombreset = nom.replace('%20', ' ');
+
+        $('#nombre_acudiente').html(nombreset);
+        $('#email_acudiente').html(email);
+        $('#foto_Acudiente').html("<img src='"+archivos+"Fotos/"+foto+"' width='60' height='60' alt='User' />");
+        $("#rol").html("Rol:"+rol);
+
+        $('#nom').html("<input type='hidden' class='form-control' name='nom' value='"+nombreset+"'>");
+        $('#telefono').html("<input type='hidden' class='form-control' name='telefono' value='"+tel+"'>");
+        $('#ema').html("<input type='hidden' class='form-control' name='ema' value='"+email+"'>");
+        $('#user').html("<input type='hidden' class='form-control' name='user' value='"+ide+"'>");
+        $('#inst').html("<input type='hidden' class='form-control' name='inst' value='"+inst+"'>");
+        $('#ano').html("<input type='hidden' class='form-control' name='ano' value='"+año+"'>");
+
+        $(document).on('click','#btn_enviar_pqr' ,function(){
+
+            $("#formuploadajax").on("submit", function(e){
+            e.preventDefault();
+            var f = $(this);
+            var formData = new FormData(document.getElementById("formuploadajax"));
+            $.ajax({
+                url: ruta+"pqr.php",
+                type: "post",
+                dataType: "html",
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false
+                })
+                .done(function(res){
+                    $("#men").html(res);
+                    document.getElementById("formuploadajax").reset();
+                    setTimeout(function() {
+                         $(".men1,.men2,.men3").fadeOut(1000);
+                    },1000);
+                });
+            });
+
+        });
+
+        $("#mostrar_pqr").on('click', function(){
+            window.location.href = ('pqr_enviado_docente.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+        });
+
+         $('#home_docente').on('click',function(){
+             window.location.href = ('home_docente.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+        });
+
+        $('#observador').on('click',function(){
+             window.location.href = ('observador.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+        });
+
+        $('#asistencia').on('click',function(){
+             window.location.href = ('asistencia.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+        });
+
+        $('#citaciones').on('click',function(){
+             window.location.href = ('citacion.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+        });
+
+        $('#pqr').on('click',function(){
+             window.location.href = ('pqr_docente.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+        });
+
+        $('#comunicados_Docentes').on('click',function(){
+             window.location.href = ('comunicados_Docentes.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+        });
+
+        $('#cronograma_docente').on('click',function(){
+             window.location.href = ('cronograma_docente.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+        });
+
+        $('#horario_docente').on('click',function(){
+             window.location.href = ('horario_docente.html?nombre='+nombreset+'&email='+email+'&foto='+foto+'&ide='+ide+'&inst='+inst+'&grupo='+grupo+'&ano='+año+'&id_doc='+id_do+'&tel='+tel+'&rol='+rol);
+        });
+    </script>
+   <!-- Bootstrap Core Js -->
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <!-- <script src="../plugins/bootstrap-select/js/bootstrap-select.js"></script> -->
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="plugins/node-waves/waves.js"></script>
+
+    <!-- Jquery CountTo Plugin Js -->
+    <script src="plugins/jquery-countto/jquery.countTo.js"></script>
+
+    <!-- Custom Js -->
+    <script src="js/admin.js"></script>
+    <!-- <script src="js/pages/index.js"></script> -->
+
+    <!-- Demo Js -->
+    <script src="js/demo.js"></script>
+</body>
+
+</html>
